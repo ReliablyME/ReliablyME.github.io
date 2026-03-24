@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReliablyME — Trust Infrastructure for the AI Era</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rm-orange: #ff7f41;
+  --rm-blue: #004c97;
+  --rm-aqua: #00b5e2;
+  --text: #181924;
+  --text-muted: #5b6070;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: "Source Sans Pro", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #ffffff 0, #e6eefc 40%, #f2f4fa 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.logo { height: 48px; margin-bottom: 2rem; }
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 12px 32px rgba(15,23,42,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+  text-align: left;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(15,23,42,0.16);
+  text-decoration: none;
+}
+.card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rm-orange);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.card-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.card-arrow {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--rm-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.footer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <img src="ReliablyME Logo New Transparent (1).png" alt="ReliablyME" class="logo">
+  <h1 class="hero-title">Trust Infrastructure for the AI Era</h1>
+  <p class="hero-sub">ReliablyME builds verifiable trust into human-AI collaboration — from behavioral commitments to governed AI execution.</p>
+  <div class="cards">
+    <a href="/identic-ai/" class="card">
+      <div class="card-label">Identic AI &middot; vNext</div>
+      <div class="card-title">Behavioral Trust Network</div>
+      <div class="card-desc">How ReliablyME vNext translates Don Tapscott’s “Power of Two” vision into an operational protocol for commitments, reliability, and AI-enabled collaboration.</div>
+      <span class="card-arrow">Read the microsite →</span>
+    </a>
+    <a href="/whitepaper/" class="card">
+      <div class="card-label">TECP Whitepaper</div>
+      <div class="card-title">Governed AI Proliferation, Evidence &amp; ROI</div>
+      <div class="card-desc">Building trust infrastructure for AI execution — governance, policy, Proof of Behavior, and the investor case for verifiable AI.</div>
+      <span class="card-arrow">Read the whitepaper →</span>
+    </a>
+  </div>
+  <div class="footer">ReliablyME Whitepaper Series &bull; 2025–2026 &bull; reliably.me</div>
+</div>
+</body>
+</html>
