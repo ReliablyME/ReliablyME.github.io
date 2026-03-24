@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ReliablyME vNext & Identic AI — Microsite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Brand fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ReliablyME brand palette */
+    --rm-orange: #ff7f41;
+    --rm-blue:   #004c97;
+    --rm-aqua:   #00b5e2;
+    --rm-aqua-light: #99d6ea;
+    --rm-green:  #97d700;
+    --rm-grey:   #888b8d;
+    --rm-grey-med: #a7a8aa;
+
+    --bg: #f2f4fa;
+    --bg-elevated: #ffffff;
+    --text: #181924;
+    --text-muted: #5b6070;
+
+    --content-width: 980px;
+    --nav-height: 64px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at top, #ffffff 0, #e6eefc 40%, #f2f4fa 100%);
+    color: var(--text);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--rm-blue);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Top nav */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    height: var(--nav-height);
+  }
+
+  .top-nav-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.4rem;
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rm-blue);
+    font-size: 0.9rem;
+  }
+
+  .brand-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(145deg, var(--rm-orange), var(--rm-aqua));
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.9);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a.active {
+    color: var(--rm-blue);
+    border-bottom-color: var(--rm-orange);
+  }
+
+  .nav-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
+  /* Hero */
+  .hero {
+    max-width: var(--content-width);
+    margin: 1.8rem auto 2.8rem auto;
+    padding: 0 1.4rem;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.8rem;
+    color: var(--rm-blue);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.45rem;
+    line-height: 1.25;
+    margin-bottom: 0.7rem;
+    color: #11121c;
+  }
+
+  .hero-subtitle {
+    font-size: 1.04rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.95);
+    color: var(--text-muted);
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 220px;
+    border-radius: 20px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255,127,65,0.2), transparent 55%),
+      radial-gradient(circle at 100% 100%, rgba(0,181,226,0.23), transparent 60%),
+      #ffffff;
+    box-shadow: 0 20px 40px rgba(15,23,42,0.22);
+    overflow: hidden;
+  }
+
+  .hero-visual-inner {
+    position: absolute;
+    inset: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.04);
+    background: linear-gradient(135deg, #ffffff, #f4f7ff);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-quote {
+    font-size: 0.98rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-quote small {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-diagram {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    background: rgba(255,127,65,0.09);
+    color: var(--rm-blue);
+    border: 1px dashed rgba(0,0,0,0.08);
+  }
+
+  /* Main layout */
+  .main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1.4rem 4rem 1.4rem;
+    display: grid;
+    grid-template-columns: minmax(0, 3.3fr) minmax(240px, 1.1fr);
+    gap: 1.8rem;
+    align-items: flex-start;
+  }
+
+  .content-column {
+    min-width: 0;
+  }
+
+  /* Floating TOC */
+  .toc-floating {
+    position: sticky;
+    top: calc(var(--nav-height) + 1.2rem);
+    background: rgba(255,255,255,0.98);
+    border-radius: 14px;
+    padding: 0.9rem 1rem 1rem 1rem;
+    box-shadow: 0 10px 26px rgba(15,23,42,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .toc-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--rm-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.86rem;
+  }
+
+  .toc-list li {
+    margin: 0.25rem 0;
+  }
+
+  .toc-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .toc-list a.toc-active {
+    color: var(--rm-blue);
+    font-weight: 600;
+  }
+
+  .toc-sub {
+    padding-left: 0.8rem;
+    margin-top: 0.15rem;
+  }
+
+  /* Sections */
+  section {
+    padding-top: 2.7rem;
+    margin-top: -2.7rem; /* anchor offset */
+  }
+
+  section:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--rm-blue);
+    margin-bottom: 0.3rem;
+  }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.9rem;
+    margin-bottom: 0.6rem;
+    color: #13141e;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-top: 1.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    margin: 0.7rem 0;
+    color: var(--text);
+    font-size: 0.99rem;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 0.8rem 0;
+  }
+
+  li {
+    margin: 0.35rem 0;
+  }
+
+  .pill-inline {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border: 1px solid rgba(0,0,0,0.08);
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+    background: rgba(255,255,255,0.8);
+  }
+
+  .callout {
+    margin: 1.2rem 0;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: rgba(255,127,65,0.06);
+    border: 1px solid rgba(255,127,65,0.25);
+    font-size: 0.93rem;
+  }
+
+  .callout strong {
+    color: var(--rm-blue);
+  }
+
+  .quote-block {
+    border-left: 4px solid var(--rm-blue);
+    padding: 0.7rem 1rem;
+    margin: 1.4rem 0;
+    background: rgba(0,76,151,0.03);
+    border-radius: 0 10px 10px 0;
+    font-size: 0.98rem;
+  }
+
+  .quote-block span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* Diagram cards */
+  .diagram-card {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 14px;
+    background: var(--bg-elevated);
+    box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .diagram-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .diagram-caption {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    margin-top: 0.4rem;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Story Cards */
+  .story-card {
+    margin: 1.8rem 0;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 6px 22px rgba(15,23,42,0.08);
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+
+  .story-header {
+    padding: 0.9rem 1.1rem;
+    background: linear-gradient(135deg,
+      rgba(255,127,65,0.09),
+      rgba(0,76,151,0.07)
+    );
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .story-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--rm-blue);
+    font-weight: 600;
+  }
+
+  .story-toggle {
+    font-size: 1.4rem;
+    color: var(--rm-orange);
+    transition: transform 0.3s ease;
+  }
+
+  .story-card.open .story-toggle {
+    transform: rotate(45deg);
+  }
+
+  .story-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.1rem;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .story-card.open .story-body {
+    padding: 1rem 1.1rem 1.4rem 1.1rem;
+  }
+
+  .story-diagram {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .story-diagram svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero {
+      margin-top: 1.2rem;
+    }
+
+    .main {
+      display: block;
+    }
+
+    .toc-floating {
+      display: none;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    .nav-links.open {
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      padding: 0.6rem 1.2rem 0.8rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem 1.2rem 3rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* Print optimization (optional, helpful for PDF export) */
+  @media print {
+    @page {
+      margin: 0;
+      size: auto;
+    }
+
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: auto !important;
+      background: white !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    *, *::before, *::after {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    section, article, header, footer, nav, aside,
+    div[class*="section"], div[class*="container"],
+    .story-card, .diagram-card, .hero, .hero-inner,
+    .main, .content-column {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    img, svg {
+      max-width: 100% !important;
+      height: auto !important;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    a {
+      color: #0066cc !important;
+      text-decoration: underline !important;
+    }
+
+    a[href]::after {
+      content: "" !important;
+    }
+
+    .story-body {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+
+    .top-nav, .nav-links, .toc-floating {
+      display: block !important;
+      position: static !important;
+      box-shadow: none !important;
+      background: white !important;
+    }
+
+    .top-nav {
+      position: static !important;
+    }
+
+    .toc-floating {
+      position: static !important;
+      margin-top: 2rem !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top navigation -->
+<header class="top-nav">
+  <div class="top-nav-inner">
+            <div class="brand-mark">
+            <img src="ReliablyME Logo New Transparent.png" alt="Powered by ReliablyME" style="height: 32px; display: block;">
+          </div>  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#human-agency">Human Agency</a>
+      <a href="#power-of-two">Power of Two</a>
+      <a href="#experience">Experience</a>
+      <a href="#interoperability">Interoperability</a>
+      <a href="#proofs">Proofs</a>
+      <a href="#conclusion">Conclusion</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">Whitepaper Microsite</div>
+      <div class="hero-title">ReliablyME vNext and the Rise of Identic AI</div>
+      <div class="hero-subtitle">
+        How a human-centric trust architecture translates Don Tapscott’s “Power of Two” vision
+        into an operational protocol for commitments, reliability, and AI-enabled collaboration.
+      </div>
+      <div class="hero-pills">
+        <span class="pill">Identic AI</span>
+        <span class="pill">Human Agency</span>
+        <span class="pill">Trust Architecture</span>
+        <span class="pill">Event-First Design</span>
+      </div>
+      <div class="hero-meta">
+        ReliablyME Whitepaper Series • 2025
+      </div>
+    </div>
+    <div class="hero-visual fade-in">
+      <div class="hero-visual-inner">
+        <div class="hero-quote">
+          “The most powerful unit of value creation in the digital age is the dyad — two people
+          enhancing each other through Identic AI.”
+          <small>DON TAPSCOTT</small>
+        </div>
+        <div class="hero-diagram">
+          <span class="hero-badge">Promisor</span>
+          <span class="hero-badge">Promisee</span>
+          <span class="hero-badge">Sponsor (optional)</span>
+          <span class="hero-badge">AI as Ally — Not Actor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main -->
+<main class="main">
+  <div class="content-column">
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <div class="section-label">Overview</div>
+      <h2>Executive Summary</h2>
+
+      <p>
+        Identic AI represents a new phase of the digital age in which AI systems are designed
+        to amplify a person’s identity, judgment, and reliability — not to replace them.
+        In <em>You²</em>, Don Tapscott describes this as a shift toward AI that helps two people
+        collaborate more effectively, rather than automating them away.
+      </p>
+
+      <p>
+        <strong>ReliablyME vNext</strong> is an engineering realization of that vision. Instead of treating
+        tasks as the fundamental unit of work, vNext elevates <strong>commitments</strong> — human-to-human
+        promises — as the core object in the system. Those commitments become verifiable digital trust
+        primitives, supported by an event-first architecture and a strict set of human-agency rules.
+      </p>
+
+      <div class="callout">
+        <strong>At a glance:</strong><br><br>
+        • Identic AI augments identity and intention, rather than substituting for it.<br>
+        • Reliability becomes a <strong>verifiable digital asset</strong>, not just an informal reputation.<br>
+        • Commitments, not tasks, are the core unit of coordination.<br>
+        • Human agency is enforced via architecture and APIs, not just UX patterns.<br>
+        • A thin-waist model makes trust interoperable across tools and teams.
+      </div>
+
+      <!-- Story Card 1 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Making Intent Explicit (Maya &amp; David)</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p><strong>Tapscott Theme:</strong> AI as an identity amplifier.</p>
+          <p>
+            When Maya asks David for a POC, ReliablyME helps David commit clearly:
+            <em>“I will deliver the onboarding POC by Friday at 3pm ET so Maya can use it in the Sales demo.”</em>
+          </p>
+          <p>
+            This is David expressing his identity and reliability in first person — exactly the kind of explicit,
+            human-authored intent that Tapscott argues Identic AI should support.
+          </p>
+          <div class="story-diagram">
+            <svg width="320" height="160">
+              <circle cx="80" cy="80" r="40" fill="#ff7f41" opacity="0.9"/>
+              <circle cx="160" cy="80" r="40" fill="#00b5e2" opacity="0.85"/>
+              <circle cx="240" cy="80" r="40" fill="#004c97" opacity="0.9"/>
+              <text x="80" y="84" text-anchor="middle" fill="white" font-size="12">Intent</text>
+              <text x="160" y="84" text-anchor="middle" fill="white" font-size="12">Identity</text>
+              <text x="240" y="84" text-anchor="middle" fill="white" font-size="12">Trust</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture">
+      <div class="section-label">Architecture</div>
+      <h2>A Thin-Waist Architecture for Digital Trust</h2>
+
+      <p>
+        ReliablyME vNext is built on a narrow-waist, event-first architecture. All surfaces and services
+        interact through a stable core pipeline:
+        <span class="pill-inline">Smart API → CIE → Orchestrator → Event Store → Projections → Proof Layer</span>
+      </p>
+
+      <p>
+        The <strong>Smart API</strong> is the single entry point for commitments; the
+        <strong>Commitment Intelligence Engine (CIE)</strong> adds contextual reasoning and drift detection.
+        The <strong>Orchestrator</strong> owns timing within policy guardrails. The
+        <strong>Event Store</strong> captures immutable history, <strong>Projections</strong> turn events into
+        dashboards and sponsor views, and the <strong>Proof Layer</strong> generates exportable evidence of
+        reliability and follow-through.
+      </p>
+
+      <div class="diagram-card fade-in">
+        <div class="diagram-title">Architecture Visual</div>
+        <svg viewBox="0 0 600 210">
+          <defs>
+            <linearGradient id="archGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffecd9"/>
+              <stop offset="100%" stop-color="#e0f4ff"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="10" width="580" height="190" rx="16" fill="url(#archGrad)" opacity="0.6"/>
+          <g font-family="Source Sans Pro" font-size="12" fill="#004c97">
+            <rect x="28" y="70" width="90" height="50" rx="8" fill="white" stroke="#ff7f41" stroke-width="2"/>
+            <text x="73" y="97" text-anchor="middle">Smart API</text>
+
+            <rect x="138" y="70" width="90" height="50" rx="8" fill="white" stroke="#004c97" stroke-width="2"/>
+            <text x="183" y="92" text-anchor="middle">CIE</text>
+            <text x="183" y="108" text-anchor="middle" fill="#5b6070" font-size="10">Intelligence</text>
+
+            <rect x="248" y="70" width="110" height="50" rx="8" fill="white" stroke="#004c97" stroke-width="2"/>
+            <text x="303" y="92" text-anchor="middle">Orchestrator</text>
+            <text x="303" y="108" text-anchor="middle" fill="#5b6070" font-size="10">Timing &amp; Plans</text>
+
+            <rect x="378" y="40" width="90" height="50" rx="8" fill="white" stroke="#00b5e2" stroke-width="2"/>
+            <text x="423" y="67" text-anchor="middle">Event Store</text>
+
+            <rect x="378" y="120" width="90" height="50" rx="8" fill="white" stroke="#97d700" stroke-width="2"/>
+            <text x="423" y="142" text-anchor="middle">Projections</text>
+
+            <rect x="488" y="70" width="90" height="50" rx="8" fill="white" stroke="#ff7f41" stroke-width="2"/>
+            <text x="533" y="92" text-anchor="middle">Proof Layer</text>
+          </g>
+          <g stroke="#004c97" stroke-width="2" stroke-linecap="round">
+            <line x1="118" y1="95" x2="138" y2="95"/>
+            <line x1="228" y1="95" x2="248" y2="95"/>
+            <line x1="358" y1="95" x2="378" y2="65"/>
+            <line x1="358" y1="95" x2="378" y2="145"/>
+            <line x1="468" y1="65" x2="488" y2="95"/>
+            <line x1="468" y1="145" x2="488" y2="95"/>
+          </g>
+          <text x="120" y="55" font-size="10" fill="#5b6070">Connectors &amp; Clients</text>
+        </svg>
+        <div class="diagram-caption">
+          All connectors converge on a single trust pipeline. Events and proofs, not bespoke integrations,
+          carry the meaning of commitments across the ecosystem.
+        </div>
+      </div>
+
+      <!-- Story Card 2 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Multi-System Accessibility Audit</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p><strong>Tapscott Theme:</strong> Distributed accountability and shared visibility.</p>
+          <p>
+            An accessibility initiative spans Slack (requests), Jira (tasks), and email (vendor reports). The
+            architecture unifies them: all roads lead to the event store and Proof Layer, creating one coherent
+            trust record without centralizing every tool.
+          </p>
+          <div class="story-diagram">
+            <svg width="350" height="120">
+              <rect x="10" y="20" width="80" height="50" fill="#ff7f41" rx="8"/>
+              <text x="50" y="50" text-anchor="middle" fill="white">Slack</text>
+              <rect x="130" y="20" width="80" height="50" fill="#00b5e2" rx="8"/>
+              <text x="170" y="50" text-anchor="middle" fill="white">Jira</text>
+              <rect x="250" y="20" width="80" height="50" fill="#004c97" rx="8"/>
+              <text x="290" y="50" text-anchor="middle" fill="white">Email</text>
+              <line x1="90" y1="45" x2="130" y2="45" stroke="#004c97" stroke-width="2"/>
+              <line x1="210" y1="45" x2="250" y2="45" stroke="#004c97" stroke-width="2"/>
+              <rect x="130" y="80" width="80" height="35" fill="#97d700" rx="6"/>
+              <text x="170" y="102" text-anchor="middle" fill="white" font-size="12">Proof</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HUMAN AGENCY -->
+    <section id="human-agency">
+      <div class="section-label">Human Agency</div>
+      <h2>AI Suggests. Humans Decide.</h2>
+
+      <p>
+        A core Identic AI principle is that AI should never override human autonomy. vNext encodes this as a
+        hard architectural rule: only humans can move a commitment through its lifecycle.
+      </p>
+
+      <h3>Explicit Confirmation for Every State Change</h3>
+      <p>
+        Only human users may create, modify, complete, snooze, or cancel commitments, or involve sponsors.
+        Any tool or agent that triggers a state change must carry an explicit confirmation flag such as
+        <code>userConfirmed: true</code>. AI is allowed to draft, suggest, and prepare — but never to act
+        without that confirmation.
+      </p>
+
+      <h3>No Autonomous Escalations</h3>
+      <p>
+        Sponsor involvement is always a human choice. Even when the CIE detects high-severity drift, it may
+        only present options, not initiate escalation on its own.
+      </p>
+
+      <div class="quote-block">
+        “In ReliablyME, human consent is not a UX choice — it is a protocol requirement.”
+        <span>ReliablyME vNext Human-Agency Addendum</span>
+      </div>
+
+      <!-- Story Card 3 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Drift Detection Without Pressure</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p><strong>Scenario:</strong> David falls behind on the POC because of an urgent bug.</p>
+          <p>
+            The CIE surfaces a neutral update:<br>
+            <em>“This is trending 12–18 hours behind expectations.”</em>
+          </p>
+          <p>Then offers supportive actions: adjust the due date, reduce scope, ask Maya for options, or involve a sponsor.</p>
+          <p><strong>Tapscott Theme:</strong> AI illuminates reality without eroding autonomy.</p>
+          <div class="story-diagram">
+            <svg width="320" height="120">
+              <rect x="10" y="20" width="80" height="40" fill="#ff7f41" rx="8"/>
+              <text x="50" y="47" fill="white" text-anchor="middle">Expect</text>
+              <rect x="120" y="20" width="80" height="40" fill="#00b5e2" rx="8"/>
+              <text x="160" y="47" fill="white" text-anchor="middle">Reality</text>
+              <rect x="230" y="20" width="80" height="40" fill="#004c97" rx="8"/>
+              <text x="270" y="47" fill="white" text-anchor="middle">driftΔ</text>
+              <line x1="90" y1="40" x2="120" y2="40" stroke="#004c97" stroke-width="2"/>
+              <line x1="200" y1="40" x2="230" y2="40" stroke="#004c97" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POWER OF TWO -->
+    <section id="power-of-two">
+      <div class="section-label">Power of Two</div>
+      <h2>The Commitment Dyad: Digital Trust’s Fundamental Unit</h2>
+
+      <p>
+        Tapscott’s “Power of Two” framework sees the dyad — two people enhancing each other with AI —
+        as the fundamental unit of value. vNext mirrors this by placing the <strong>commitment</strong>
+        between a promisor and a promisee at the center of its model, with sponsors as optional allies.
+      </p>
+
+      <p>
+        Each commitment is a structured agreement that includes:
+      </p>
+      <ul>
+        <li><strong>Promisor</strong> — who is making the promise</li>
+        <li><strong>Promisee</strong> — who is relying on it</li>
+        <li><strong>Acceptance test</strong> — a clear “I will…” definition of success</li>
+        <li><strong>Benefit tags</strong> — why this matters</li>
+        <li><strong>Dependencies &amp; escalation contact</strong></li>
+      </ul>
+
+      <div class="diagram-card fade-in">
+        <div class="diagram-title">Power of Two Model</div>
+        <svg viewBox="0 0 600 210">
+          <defs>
+            <linearGradient id="dyadGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffecd9"/>
+              <stop offset="100%" stop-color="#e0f7ff"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="10" width="580" height="190" rx="16" fill="url(#dyadGrad)" opacity="0.6"/>
+          <circle cx="170" cy="110" r="54" fill="#ffffff" stroke="#ff7f41" stroke-width="2"/>
+          <circle cx="430" cy="110" r="54" fill="#ffffff" stroke="#004c97" stroke-width="2"/>
+          <ellipse cx="300" cy="110" rx="32" ry="52" fill="#00b5e2" opacity="0.13"/>
+          <text x="170" y="108" text-anchor="middle" font-family="Source Sans Pro" font-size="14" fill="#ff7f41">
+            Promisor
+          </text>
+          <text x="170" y="126" text-anchor="middle" font-family="Source Sans Pro" font-size="10" fill="#5b6070">
+            “I will…”
+          </text>
+          <text x="430" y="108" text-anchor="middle" font-family="Source Sans Pro" font-size="14" fill="#004c97">
+            Promisee
+          </text>
+          <text x="430" y="126" text-anchor="middle" font-family="Source Sans Pro" font-size="10" fill="#5b6070">
+            Relies on outcome
+          </text>
+          <circle cx="300" cy="45" r="30" fill="#ffffff" stroke="#97d700" stroke-width="2"/>
+          <text x="300" y="48" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#97d700">
+            Sponsor
+          </text>
+          <text x="300" y="63" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#5b6070">
+            Ally, not supervisor
+          </text>
+          <line x1="280" y1="70" x2="220" y2="90" stroke="#97d700" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="320" y1="70" x2="380" y2="90" stroke="#97d700" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="220" y="138" width="160" height="26" rx="13" fill="#004c97"/>
+          <text x="300" y="155" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#ffffff">
+            Commitment &amp; Acceptance Test
+          </text>
+        </svg>
+        <div class="diagram-caption">
+          The commitment dyad makes the trust relationship explicit. The sponsor sits alongside
+          as an ally who can help unblock, rather than enforce.
+        </div>
+      </div>
+
+      <!-- Story Card 4 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Promisor, Promisee &amp; Sponsor-as-Ally</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p>
+            Maya (PM) and David (Engineer) form the core dyad. When they hit a legal dependency, Erin (Director)
+            joins as a sponsor to help unblock — not to punish. She’s invited, not auto-escalated.
+          </p>
+          <p><strong>Tapscott Theme:</strong> Value is created in dyads, with AI strengthening their coordination.</p>
+          <div class="story-diagram">
+            <svg width="340" height="120">
+              <circle cx="80" cy="60" r="34" fill="#ff7f41" opacity="0.9"/>
+              <text x="80" y="65" fill="white" text-anchor="middle" font-size="12">Promisor</text>
+              <circle cx="260" cy="60" r="34" fill="#004c97" opacity="0.9"/>
+              <text x="260" y="65" fill="white" text-anchor="middle" font-size="12">Promisee</text>
+              <circle cx="170" cy="15" r="20" fill="#97d700"/>
+              <text x="170" y="20" fill="white" text-anchor="middle" font-size="10">Sponsor</text>
+              <line x1="100" y1="60" x2="240" y2="60" stroke="#00b5e2" stroke-width="3"/>
+              <line x1="170" y1="35" x2="110" y2="60" stroke="#97d700" stroke-width="2" stroke-dasharray="4 3"/>
+              <line x1="170" y1="35" x2="230" y2="60" stroke="#97d700" stroke-width="2" stroke-dasharray="4 3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-label">Experience</div>
+      <h2>Meaning, Not Metrics</h2>
+
+      <p>
+        Identic AI should elevate human potential through meaning, not compliance pressure. vNext reflects
+        this in its experience layer, governed by a Template Registry and benefit-first projections.
+      </p>
+
+      <h3>Tone Governance</h3>
+      <p>
+        All AI-generated messages are required to:
+      </p>
+      <ul>
+        <li>Explain <strong>why</strong> the commitment matters.</li>
+        <li>Reinforce <strong>choice, autonomy, and boundaries</strong>.</li>
+        <li>Frame drift as a chance to adjust, not as failure.</li>
+        <li>Recognize impact and contribution clearly.</li>
+      </ul>
+
+      <h3>Benefit-Linked Views</h3>
+      <p>
+        Dashboards and reports prioritize benefit linkage over raw compliance. Commitments are grouped and
+        filtered by benefits, and drift alerts are contextualized with potential impact.
+      </p>
+    </section>
+
+    <!-- INTEROPERABILITY -->
+    <section id="interoperability">
+      <div class="section-label">Interoperability</div>
+      <h2>Trust That Flows Across the Enterprise</h2>
+
+      <p>
+        For Identic AI to be useful in real organizations, its trust signals have to move across the tools
+        people already use. vNext accomplishes this through a family of bidirectional connectors
+        (Slack, Twilio, Jira, ServiceNow, HRIS, and more) plus a Connector SDK.
+      </p>
+
+      <div class="diagram-card fade-in">
+        <div class="diagram-title">Event Pipeline Flow</div>
+        <svg viewBox="0 0 600 210">
+          <rect x="10" y="10" width="580" height="190" rx="16" fill="#ffffff" opacity="0.9" stroke="#e0e4f0"/>
+          <circle cx="120" cy="105" r="32" fill="#ff7f41" opacity="0.9"/>
+          <text x="120" y="103" text-anchor="middle" font-family="Source Sans Pro" font-size="12" fill="#ffffff">Events</text>
+          <text x="120" y="118" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#ffe7d3">commitment.*</text>
+          <circle cx="300" cy="105" r="32" fill="#00b5e2" opacity="0.9"/>
+          <text x="300" y="103" text-anchor="middle" font-family="Source Sans Pro" font-size="12" fill="#ffffff">Views</text>
+          <text x="300" y="118" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#dcf7ff">projections</text>
+          <circle cx="480" cy="105" r="32" fill="#004c97" opacity="0.95"/>
+          <text x="480" y="103" text-anchor="middle" font-family="Source Sans Pro" font-size="12" fill="#ffffff">Proofs</text>
+          <text x="480" y="118" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#d1e2ff">exports</text>
+          <g stroke="#004c97" stroke-width="2" stroke-linecap="round">
+            <line x1="152" y1="105" x2="268" y2="105"/>
+            <line x1="332" y1="105" x2="448" y2="105"/>
+          </g>
+          <text x="120" y="58" text-anchor="middle" font-family="Source Sans Pro" font-size="10" fill="#5b6070">
+            Inbound from connectors
+          </text>
+          <text x="300" y="58" text-anchor="middle" font-family="Source Sans Pro" font-size="10" fill="#5b6070">
+            Dashboards &amp; sponsor views
+          </text>
+          <text x="480" y="58" text-anchor="middle" font-family="Source Sans Pro" font-size="10" fill="#5b6070">
+            Audits, recognition &amp; attestations
+          </text>
+        </svg>
+        <div class="diagram-caption">
+          Connectors normalize conversations into events, which drive projections and proofs. Trust flows
+          across tools without losing provenance.
+        </div>
+      </div>
+
+      <!-- Story Card 5 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Cross-Department Reliability</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p>
+            An engineering manager, design lead, and security officer collaborate across different tools.
+            ReliablyME’s connectors route each interaction into the same event spine, so the proof of
+            reliability is unified even though the work is distributed.
+          </p>
+          <p><strong>Tapscott Theme:</strong> Complex systems can be trustworthy when they share a common trust fabric.</p>
+          <div class="story-diagram">
+            <svg width="350" height="140">
+              <rect x="20" y="60" width="90" height="50" fill="#ff7f41" rx="8"/>
+              <text x="65" y="90" fill="white" text-anchor="middle">Design</text>
+              <rect x="130" y="60" width="90" height="50" fill="#00b5e2" rx="8"/>
+              <text x="175" y="90" fill="white" text-anchor="middle">Eng</text>
+              <rect x="240" y="60" width="90" height="50" fill="#004c97" rx="8"/>
+              <text x="285" y="90" fill="white" text-anchor="middle">Security</text>
+              <line x1="110" y1="85" x2="130" y2="85" stroke="#004c97" stroke-width="2"/>
+              <line x1="220" y1="85" x2="240" y2="85" stroke="#004c97" stroke-width="2"/>
+              <text x="175" y="40" text-anchor="middle" fill="#5b6070" font-size="11">Unified Proof Trail</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOFS + DRIFT -->
+    <section id="proofs">
+      <div class="section-label">Proofs &amp; Drift</div>
+      <h2>Proofs and Drift Detection</h2>
+
+      <p>
+        The Proof Layer transforms event histories into reusable trust artifacts. Meanwhile, the CIE monitors
+        expectations and signals when reality begins to drift — always with options, never with punishment.
+      </p>
+
+      <h3>Proofs as Reliability Assets</h3>
+      <p>
+        Proofs answer questions like:
+      </p>
+      <ul>
+        <li>What commitments were made and by whom?</li>
+        <li>What actions and evidence supported them?</li>
+        <li>Which benefits were impacted?</li>
+      </ul>
+
+      <div class="diagram-card fade-in">
+        <div class="diagram-title">Drift Detection Logic</div>
+        <svg viewBox="0 0 600 230">
+          <rect x="10" y="10" width="580" height="210" rx="16" fill="#ffffff" opacity="0.9" stroke="#e0e4f0"/>
+          <rect x="40" y="60" width="120" height="46" rx="10" fill="#ff7f41" opacity="0.95"/>
+          <text x="100" y="84" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#ffffff">
+            Commitment
+          </text>
+          <text x="100" y="98" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#ffe7d3">
+            expectations &amp; benefits
+          </text>
+          <rect x="230" y="40" width="140" height="46" rx="10" fill="#00b5e2" opacity="0.9"/>
+          <text x="300" y="65" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#ffffff">
+            Indicators
+          </text>
+          <text x="300" y="79" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#dcf7ff">
+            reality over time
+          </text>
+          <rect x="230" y="120" width="140" height="52" rx="10" fill="#004c97" opacity="0.95"/>
+          <text x="300" y="143" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#ffffff">
+            CIE Drift Check
+          </text>
+          <text x="300" y="159" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#d1e2ff">
+            neutral delta (driftΔ)
+          </text>
+          <rect x="430" y="60" width="130" height="46" rx="10" fill="#97d700" opacity="0.95"/>
+          <text x="495" y="83" text-anchor="middle" font-family="Source Sans Pro" font-size="11" fill="#ffffff">
+            Suggestions
+          </text>
+          <text x="495" y="97" text-anchor="middle" font-family="Source Sans Pro" font-size="9" fill="#f1ffcf">
+            ≥ 2 actions + sponsor option
+          </text>
+          <g stroke="#004c97" stroke-width="2" stroke-linecap="round">
+            <line x1="160" y1="83" x2="230" y2="63"/>
+            <line x1="160" y1="83" x2="230" y2="143"/>
+            <line x1="370" y1="145" x2="430" y2="83"/>
+          </g>
+        </svg>
+        <div class="diagram-caption">
+          The CIE observes indicator data against commitments, computes a neutral drift delta, and offers
+          at least two suggested actions — plus the option to involve a sponsor. The human decides.
+        </div>
+      </div>
+
+      <!-- Vibe Incident Callout + Diagram -->
+      <div class="callout" style="margin-top: 2rem;">
+        <strong>Why the Google Vibe Drive-Deletion Disaster Proves the Need for Identic AI Architecture</strong><br><br>
+        A recent case reported by <em>The Register</em>—in which Google’s Vibe coding assistant inadvertently deleted a user’s entire Google Drive—illustrates the systemic danger of AI acting without human-confirmed intent. The deletion was not a UX issue but an architectural one: a system with high privileges, low visibility, and no trust boundary allowed a non-human actor to perform a destructive state change.<br><br>
+        ReliablyME vNext is designed explicitly to prevent these failures. Under Identic AI principles, AI may suggest or illuminate, but it may never perform consequential actions without explicit, first-person human confirmation. The vNext pipeline—Smart API → CIE → Orchestrator → Event Store → Proof Layer—embeds these agency invariants into protocol, ensuring that identity, consent, and verifiable intent remain at the center of all state transitions.<br><br>
+        The Vibe incident underscores why this architecture is necessary: trust collapse happens when automation overrides autonomy, and only human-centered design can prevent it.
+      </div>
+
+      <div class="diagram-card fade-in">
+        <div class="diagram-title">Automation Failure Mode: No Human-Confirmed Intent</div>
+        <svg viewBox="0 0 600 210">
+          <rect x="10" y="10" width="580" height="190" rx="16"
+                fill="#ffffff" opacity="0.95" stroke="#e0e4f0"/>
+          <!-- System Action -->
+          <rect x="40" y="60" width="150" height="50" rx="10"
+                fill="#ff7f41" opacity="0.9"/>
+          <text x="115" y="88" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="13" fill="#fff">
+            AI System Action
+          </text>
+          <text x="115" y="103" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="10" fill="#ffe7d3">
+            (High privilege)
+          </text>
+
+          <!-- No Trust Boundary -->
+          <rect x="230" y="60" width="150" height="50" rx="10"
+                fill="#00b5e2" opacity="0.9"/>
+          <text x="305" y="88" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="13" fill="#fff">
+            No Trust Boundary
+          </text>
+          <text x="305" y="103" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="10" fill="#dcf7ff">
+            (No confirmation)
+          </text>
+
+          <!-- Catastrophic Result -->
+          <rect x="420" y="60" width="150" height="50" rx="10"
+                fill="#004c97" opacity="0.95"/>
+          <text x="495" y="88" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="13" fill="#fff">
+            File Deletion
+          </text>
+          <text x="495" y="103" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="10" fill="#e0edff">
+            (Irreversible)
+          </text>
+
+          <!-- Arrows -->
+          <g stroke="#004c97" stroke-width="2" stroke-linecap="round">
+            <line x1="190" y1="85" x2="230" y2="85"/>
+            <line x1="380" y1="85" x2="420" y2="85"/>
+          </g>
+
+          <!-- Bottom caption -->
+          <text x="300" y="165" text-anchor="middle"
+                font-family="Source Sans Pro" font-size="11" fill="#5b6070">
+            In ReliablyME vNext, this action would be impossible without
+            explicit, first-person human confirmation.
+          </text>
+        </svg>
+        <div class="diagram-caption">
+          Google’s Vibe incident demonstrates what happens when automation is allowed to
+          bypass human intent. Identic AI requires the opposite: human authorship and
+          consent must sit between AI suggestions and real-world consequences.
+        </div>
+      </div>
+
+      <!-- Story Card 6 -->
+      <div class="story-card">
+        <div class="story-header">
+          <h4>Story: Quarterly Attestations Without Burden</h4>
+          <div class="story-toggle">+</div>
+        </div>
+        <div class="story-body">
+          <p>
+            Department leads complete quarterly access reviews. ReliablyME guides them through attestations
+            and evidence, then produces proofs auditors can trust.
+          </p>
+          <p><strong>Tapscott Theme:</strong> Verifiable trust as a foundation for digital institutions.</p>
+          <div class="story-diagram">
+            <svg width="340" height="160">
+              <rect x="60" y="20" width="220" height="120" fill="#ffffff" stroke="#004c97" stroke-width="2" rx="10"/>
+              <text x="170" y="45" text-anchor="middle" fill="#004c97" font-size="14">Proof of Reliability</text>
+              <line x1="80" y1="65" x2="260" y2="65" stroke="#e0e4f0" stroke-width="1"/>
+              <text x="80" y="90" fill="#ff7f41" font-size="11">✔ Attestation Complete</text>
+              <text x="80" y="110" fill="#00b5e2" font-size="11">✔ Evidence Attached</text>
+              <text x="80" y="130" fill="#97d700" font-size="11">✔ Verified Identity</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section id="conclusion">
+      <div class="section-label">Conclusion</div>
+      <h2>Trust as a Technological Capability</h2>
+
+      <p>
+        As AI spreads through every layer of work, the central question is no longer simply
+        “What can we automate?” but “How can we strengthen trust, autonomy, and dignity while we digitize?”
+      </p>
+
+      <p>
+        Tapscott’s Identic AI thesis offers the conceptual foundation: AI as an extension of identity and
+        a partner in building trustworthy relationships. ReliablyME vNext supplies the engineering reality:
+        a human-centered, event-first architecture where commitments are the primary unit of coordination,
+        and reliability becomes a portable proof rather than a vague impression.
+      </p>
+
+      <div class="quote-block">
+        ReliablyME vNext operationalizes Identic AI: AI does not stand in for the relationship between two
+        people, but gives them better tools to make, keep, and prove their promises to one another.
+        <span>ReliablyME vNext Architecture &amp; Experience Spec</span>
+      </div>
+
+      <p>
+        By embedding human agency as a system invariant, aligning AI surfaces tightly to individual identity,
+        and layering proofs on top of a thin-waist event pipeline, ReliablyME vNext turns trust itself into
+        a technological capability — interoperable, verifiable, and deeply human.
+      </p>
+    </section>
+
+  </div>
+
+  <!-- Floating TOC -->
+  <aside class="toc-floating">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Executive Summary</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#human-agency">Human Agency</a></li>
+      <li><a href="#power-of-two">Power of Two</a></li>
+      <li><a href="#experience">Experience Layer</a></li>
+      <li><a href="#interoperability">Interoperability</a></li>
+      <li><a href="#proofs">Proofs &amp; Drift</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </aside>
+</main>
+
+<footer class="footer">
+  ReliablyME Whitepaper Series • 2025 • reliably.me (draft demo microsite)
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  // Sections & anchors
+  const sectionIds = [
+    'overview','architecture','human-agency','power-of-two',
+    'experience','interoperability','proofs','conclusion'
+  ];
+  const sections = sectionIds.map(id => document.getElementById(id));
+  const navAnchors = [...document.querySelectorAll('.nav-links a')];
+  const tocAnchors = [...document.querySelectorAll('.toc-list a')];
+
+  function setActive(id) {
+    const allAnchors = [...navAnchors, ...tocAnchors];
+    allAnchors.forEach(a => {
+      const href = a.getAttribute('href');
+      const matchId = href && href.startsWith('#') ? href.substring(1) : null;
+      if (matchId === id) {
+        if (a.closest('.nav-links')) a.classList.add('active');
+        if (a.closest('.toc-list')) a.classList.add('toc-active');
+      } else {
+        a.classList.remove('active', 'toc-active');
+      }
+    });
+  }
+
+  // Intersection observer for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      if (entry.isIntersecting) {
+        setActive(id);
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: 0.1
+  });
+
+  sections.forEach(sec => {
+    if (sec) observer.observe(sec);
+  });
+
+  // Fade-in observer
+  const fades = document.querySelectorAll('.fade-in');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        fadeObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  fades.forEach(el => fadeObserver.observe(el));
+
+  // Smooth scroll for nav + TOC
+  function attachSmooth(anchors) {
+    anchors.forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 72;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+  }
+  attachSmooth(navAnchors);
+  attachSmooth(tocAnchors);
+
+  // Story card expand/collapse
+  document.querySelectorAll('.story-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.story-card');
+      const body = card.querySelector('.story-body');
+      const isOpen = card.classList.contains('open');
+      if (isOpen) {
+        body.style.maxHeight = 0;
+        card.classList.remove('open');
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px";
+        card.classList.add('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
